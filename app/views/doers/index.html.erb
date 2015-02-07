@@ -1,0 +1,33 @@
+<div class="page-header">
+  <%= link_to new_doer_path, :class => 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Doer
+  <% end %>
+  <h1>Listing doers</h1>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Password digest</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @doers) do |doer| %>
+            <td><%= doer.name %></td>
+            <td><%= doer.email %></td>
+            <td><%= doer.password_digest %></td>
+            <td><%= link_to 'Show', doer %></td>
+        <td><%= link_to 'Edit', edit_doer_path(doer) %></td>
+        <td><%= link_to 'Destroy', doer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>
