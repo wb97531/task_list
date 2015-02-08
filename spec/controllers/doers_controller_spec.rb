@@ -18,7 +18,7 @@ require 'rails_helper'
 # Message expectations are only used when there is no simpler way to specify
 # that an instance is receiving a specific message.
 
-RSpec.describe DoersController, :type => :controller do
+RSpec.describe DoersController, type: :controller do
 
   # This should return the minimal set of attributes required to create a valid
   # Doer. As you add validations to Doer, be sure to
@@ -47,7 +47,7 @@ RSpec.describe DoersController, :type => :controller do
   describe "GET show" do
     it "assigns the requested doer as @doer" do
       doer = Doer.create! valid_attributes
-      get :show, {:id => doer.to_param}, valid_session
+      get :show, {id: doer.to_param}, valid_session
       expect(assigns(:doer)).to eq(doer)
     end
   end
@@ -62,8 +62,8 @@ RSpec.describe DoersController, :type => :controller do
   describe "GET edit" do
     it "assigns the requested doer as @doer" do
       doer = Doer.create! valid_attributes
-      get :edit, {:id => doer.to_param}, valid_session
-      expect(assigns(:doer)).to eq(doer)
+      get :edit, {id: doer.to_param}, valid_session
+      expect(assigns(doer)).to eq(doer)
     end
   end
 
@@ -71,30 +71,30 @@ RSpec.describe DoersController, :type => :controller do
     describe "with valid params" do
       it "creates a new Doer" do
         expect {
-          post :create, {:doer => valid_attributes}, valid_session
+          post :create, {doer: valid_attributes}, valid_session
         }.to change(Doer, :count).by(1)
       end
 
       it "assigns a newly created doer as @doer" do
-        post :create, {:doer => valid_attributes}, valid_session
+        post :create, {doer: valid_attributes}, valid_session
         expect(assigns(:doer)).to be_a(Doer)
         expect(assigns(:doer)).to be_persisted
       end
 
       it "redirects to the created doer" do
-        post :create, {:doer => valid_attributes}, valid_session
+        post :create, {doer: valid_attributes}, valid_session
         expect(response).to redirect_to(Doer.last)
       end
     end
 
     describe "with invalid params" do
       it "assigns a newly created but unsaved doer as @doer" do
-        post :create, {:doer => invalid_attributes}, valid_session
+        post :create, {doer: invalid_attributes}, valid_session
         expect(assigns(:doer)).to be_a_new(Doer)
       end
 
       it "re-renders the 'new' template" do
-        post :create, {:doer => invalid_attributes}, valid_session
+        post :create, {doer: invalid_attributes}, valid_session
         expect(response).to render_template("new")
       end
     end
@@ -108,20 +108,20 @@ RSpec.describe DoersController, :type => :controller do
 
       it "updates the requested doer" do
         doer = Doer.create! valid_attributes
-        put :update, {:id => doer.to_param, :doer => new_attributes}, valid_session
+        put :update, {id: doer.to_param, doer: new_attributes}, valid_session
         doer.reload
         skip("Add assertions for updated state")
       end
 
       it "assigns the requested doer as @doer" do
         doer = Doer.create! valid_attributes
-        put :update, {:id => doer.to_param, :doer => valid_attributes}, valid_session
+        put :update, {id: doer.to_param, doer: valid_attributes}, valid_session
         expect(assigns(:doer)).to eq(doer)
       end
 
       it "redirects to the doer" do
         doer = Doer.create! valid_attributes
-        put :update, {:id => doer.to_param, :doer => valid_attributes}, valid_session
+        put :update, {id: doer.to_param, doer: valid_attributes}, valid_session
         expect(response).to redirect_to(doer)
       end
     end
@@ -129,13 +129,13 @@ RSpec.describe DoersController, :type => :controller do
     describe "with invalid params" do
       it "assigns the doer as @doer" do
         doer = Doer.create! valid_attributes
-        put :update, {:id => doer.to_param, :doer => invalid_attributes}, valid_session
+        put :update, {id: doer.to_param, doer: invalid_attributes}, valid_session
         expect(assigns(:doer)).to eq(doer)
       end
 
       it "re-renders the 'edit' template" do
         doer = Doer.create! valid_attributes
-        put :update, {:id => doer.to_param, :doer => invalid_attributes}, valid_session
+        put :update, {id: doer.to_param, doer: invalid_attributes}, valid_session
         expect(response).to render_template("edit")
       end
     end
@@ -145,15 +145,14 @@ RSpec.describe DoersController, :type => :controller do
     it "destroys the requested doer" do
       doer = Doer.create! valid_attributes
       expect {
-        delete :destroy, {:id => doer.to_param}, valid_session
+        delete :destroy, {id: doer.to_param}, valid_session
       }.to change(Doer, :count).by(-1)
     end
 
     it "redirects to the doers list" do
       doer = Doer.create! valid_attributes
-      delete :destroy, {:id => doer.to_param}, valid_session
+      delete :destroy, {id: doer.to_param}, valid_session
       expect(response).to redirect_to(doers_url)
     end
   end
-
 end

@@ -10,9 +10,10 @@ class SessionsController < ApplicationController
 		if @doer.persisted?
 			session[:id] = @doer.id
 			redirected_to root_path,
-		                notice: "Welcome back #{@doer.name}."
+		              notice: "Welcome back #{@doer.name}."
 		else
-			redirect_to root_path
+			redirect_to root_path,
+                  notice: "Login failed"
 		end
 	end
 
