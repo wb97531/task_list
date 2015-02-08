@@ -21,6 +21,8 @@ group :production do
   gem 'rails_12factor'
 end
 
+gem 'omniauth-github'
+
 # adds css to element tags when scaffold generates html code
 gem 'bootstrap-generators'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

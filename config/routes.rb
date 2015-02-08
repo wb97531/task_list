@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
 
-	root 'tasks#index'
-
   resources :doers
-
   resources :tasks
+
+  root 'tasks#index'
+	get '/auth/::provider/callback', to: 'sessions#oauth'
+  get 'login', to: 'sessions#login'
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.

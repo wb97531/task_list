@@ -69,6 +69,6 @@ class DoersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def doer_params
-      params.require(:doer).permit(:name, :email, :password_digest)
+      params.require(:doer).permit(:name, :email, :password, :password_confirmation, :omniauth)
     end
 end
