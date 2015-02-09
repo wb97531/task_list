@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
 
 	private
 
-	def ominauth_options
+	def omniauth_options
 		if auth_hash = request.env['omniauth.auth']
 			first_name, last_name = auth_hash[:info][:name].split(/\s+/, 2)
 			{
