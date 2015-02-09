@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :tasks
 
   root 'tasks#index'
-	get '/auth/::provider/callback', to: 'sessions#oauth'
+	get '/auth/:provider/callback', to: 'sessions#oauth'
   get 'login', to: 'sessions#login'
 
 
