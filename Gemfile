@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby '2.1.5'
+
 group :test, :darwin, :development do
 	gem 'rspec-rails'
 	gem 'factory_girl_rails'
