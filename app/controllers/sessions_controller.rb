@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
 	def oauth
 		@doer = Doer.where(
 			email: omniauth_options[:email]
-		).first_or_initalize(auth_options)
+		).first_or_initialize(auth_options)
 		if @doer.persisted?
 			session[:id] = @doer.id
 			redirected_to root_path,
