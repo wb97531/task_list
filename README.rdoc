@@ -1,3 +1,5 @@
+(This app was created to try things out after graduating the Building the Toolbelt of a Junior RoR Developer)
+
 == README
 
 This README would normally document whatever steps are necessary to get the
